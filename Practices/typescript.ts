@@ -10,7 +10,7 @@ let cadenadetexto = 'hola'
 // ❌cadenadetext.toLocaleLowerCase()
 // ❌cadenatexto.propiedadInexistente
 
-// any
+// ANY
 let obj: any = { x: 0 };
 
 obj.foo();
@@ -41,3 +41,34 @@ const n: number = obj;
 //}
 
 //saludar2({ name: 'Rick', age: 33 })
+
+//function saludar({ name, age }: { name: string, age: number }): number { ✅ porque especificamos number, que es el age, que realmente devolverá el return
+//    console.log(`Hola ${name}, tienes ${age} años`)
+//    return age
+//}
+
+//function saludar({ name, age }: { name: string, age: number }): string { ❌ porque especificamos string, que NO es el age, que realmente devolverá el return
+//    console.log(`Hola ${name}, tienes ${age} años`)
+//    return age
+//}
+
+//const sayHiFromFunction = (fn) => {
+//    fn('Rick')
+//}
+
+//sayHiFromFunction((name) => {
+//    console.log(`Hola ${name}`)
+//})
+
+//TIPAR ARROW FUNCTION
+//FORMA 1º
+const sumar = (a: number, b: number): number => {
+    return a + b
+}
+
+//FORMA 2ª
+const restar: (a: number, b: number) => number = (a, b) => {
+    return a - b
+}
+
+// NEVER
