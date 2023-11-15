@@ -195,20 +195,26 @@ thor.powerScale = 'planetary'
 type HeroId = `${string}-${string}-${string}-${string}-${string}`
 type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal'
 
-type Hero = {
+type HeroBasicInfo = {
+    name: string,
+    age: number,
+}
+
+type HeroProperties = {
     readonly id?: HeroId
-    name: string
-    age: number
     isActive?: boolean
     powerScale?: HeroPowerScale
 }
+
+type Hero = HeroBasicInfo & HeroProperties
+
 let hero: Hero = {
     name: 'Thor',
     age: 1500
 };
 
-function createHero(hero: Hero): Hero {
-    const { name, age } = hero
+function createHero(input: HeroBasicInfo): Hero {
+    const { name, age } = input
     return {
         id: crypto.randomUUID(),
         name, 
