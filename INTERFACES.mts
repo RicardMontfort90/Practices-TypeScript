@@ -27,12 +27,22 @@ interface Producto { // Esto sería la base
 interface Zapatilla extends Producto { // Un producto en concreto que se puede extender la Base de cualquier producto con extends, añadiendo la propiedad talla: number
     talla: number
 }
-
+/* // Para un producto en General
 interface CarritoDeCompras {
     totalPrice: number
     productos: Producto[]
 }
+*/
 
+//Especificamos que productos tendrá un array vacio de Zapatillas, por lo tanto, en const carrito, en productos, habrá que añadir la propiedad talla 
+interface CarritoDeCompras {
+    totalPrice: number
+    productos: Zapatilla[]
+}
+
+
+// Para un producto en General
+/*
 const carrito: CarritoDeCompras = {
     totalPrice: 100,
     productos: [
@@ -41,6 +51,21 @@ const carrito: CarritoDeCompras = {
             nombre: 'Producto 1',
             precio: 100,
             quantity: 1
+        }
+    ]
+}
+*/
+
+// Para Zapatilla
+const carrito: CarritoDeCompras = {
+    totalPrice: 100,
+    productos: [
+        {
+            id: 1,
+            nombre: 'Producto 1',
+            precio: 100,
+            quantity: 1,
+            talla: 43 // añadida la propiedad talla
         }
     ]
 }
