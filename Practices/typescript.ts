@@ -376,4 +376,3 @@ if (canvas instanceof HTMLCanvasElement) {  // deduciendo que canvas es un HTMLC
 // typeof --> para tipos
 // instanceof --> para instancias
 */
-

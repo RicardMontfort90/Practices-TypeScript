@@ -30,13 +30,25 @@ interface Sonic {
 
 type Personaje = Mario | Sonic
 
+
+// 💻 type Guard
+// dejame comprar si el personaje es Sonic
+// y esta function determina si es Sonic o no
+function checkIsSonic(personaje: Personaje): personaje is Sonic {
+    return (personaje as Sonic).correr !== undefined
+}
+
 function jugar(personaje: Personaje) {
-    if (personaje.company === 'Nintendo') {
+    // hay que evitar, en todo caso hacer los Type Guard, ya que suele dar bastantes problemas a la hora de testing
+    if (checkIsSonic(personaje)) {
+        personaje.correr()
+    }
+    /* if (personaje.company === 'Nintendo') {
         personaje.saltar() // <- Este seguro que es Mario
         return
     }
-
     //Segurp que solo llega a Sonic
     personaje.correr()
+    */
 }
 
