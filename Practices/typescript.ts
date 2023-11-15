@@ -291,8 +291,8 @@ type HeroBasicInfo = {
 
 const heroesWithBasicInfo: HeroBasicInfo[] = []
 */
-//📓TUPLES
-/*
+//📓TUPLES (tamaño fijo que tendrá el Array)
+/* Juego del 3 en raya
 [
     ['X', 'O', 'X'], // <- string []
     ['O', 'X', 'O'], // <- string []
@@ -300,14 +300,16 @@ const heroesWithBasicInfo: HeroBasicInfo[] = []
     
 ]
 */
-
+/*
 type CellValue = 'X' | 'O' | ''
 type GameBoard = [
     [CellValue, CellValue, CellValue ],
     [CellValue, CellValue, CellValue ],
     [CellValue, CellValue, CellValue ]
 ]
+*/
 
+/* matrix de 3 x 3
 const gameBoard: CellValue[][] = [
     ['X', 'O', 'X'], 
     ['O', 'X', 'O'], 
@@ -319,5 +321,59 @@ const rgb: RGB = [2, 5, 6]               // ✅ el Array, ha detectado los 3 nú
 const rgb2: RGB = [2, 5]                 // ❌ el Array, ha detectado SOLO 2 números, y espera 3
 const rgb3: RGB = [2, 5, 6, 'FATALITY']  // ❌ el Array, ha detectado los 3 números + un string no declarado previamente
 
+rgb.push(4)  // OJO! esto hace que ahora const rgb tenga 4 en lugar de 3, y esto puede ser un posible Problema!
+*/
 
+//📓ENUMS ( lo usamos para datos que són FINITOS ejemplo: un calendario, tipos de errores, tipos de viviendas)
+
+//💻 Esto sería en TypeScript, usaremos Enums
+/*
+enum ERROR_TYPES  { // si aplicamos "const enum" generará menos código en JavaScript, pero solo se consumirá desde dentro. Poniendo solo "enum" generamos más código pero al usar librias o se consume desde fuera, usarlo así.
+    NOT_FOUND,
+    UNAUTHORIZED,
+    FORBIDDEN
+}
+
+function mostrarMensaje (tipoDeError) {
+    if (tipoDeError === ERROR_TYPES.NOT_FOUND) {
+        console.log('No se encuentra el recurso')
+    } else if (tipoDeError === ERROR_TYPES.UNAUTHORIZED) {
+        console.log('No tienes permisos para acceder')
+    } else if (tipoDeError === ERROR_TYPES.FORBIDDEN) {
+        console.log('No tienes permisos para acceder')
+    }
+}
+*/
+
+//💻Esto sería con JavaScript
+/*
+const ERROR_TYPES = {
+    NOT_FOUND: 'notFound',
+    UNAUTHORIZED: 'unauthorized',
+    FORBIDDEN: 'forbidden'
+}
+
+function mostrarMensaje (tipoDeError) {
+    if (tipoDeError === ERROR_TYPES.NOT_FOUND) {
+        console.log('No se encuentra el recurso')
+    } else if (tipoDeError === ERROR_TYPES.UNAUTHORIZED) {
+        console.log('No tienes permisos para acceder')
+    } else if (tipoDeError === ERROR_TYPES.FORBIDDEN) {
+        console.log('No tienes permisos para acceder')
+    }
+}
+*/
+
+// 📓ASERCIONES DE TIPOS
+/*
+const canvas = document.getElementById('span')
+
+if (canvas instanceof HTMLCanvasElement) {  // deduciendo que canvas es un HTMLCanvasElement
+    // JavaScript está ejecutando el código de la condición
+    const ctx = canvas.getContext('2d')
+}
+
+// typeof --> para tipos
+// instanceof --> para instancias
+*/
 
