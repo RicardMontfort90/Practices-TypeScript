@@ -69,3 +69,15 @@ const carrito: CarritoDeCompras = {
         }
     ]
 }
+
+interface CarritoOps {
+    add: (product: Producto) => void,
+    remove: (id: number) => void,
+    clear: () => void
+}
+
+const ops: CarritoOps = {
+    add: (product: Producto) => {},
+    remove: (id: number) => {},
+    clear: () => {}
+}
