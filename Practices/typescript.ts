@@ -1,4 +1,4 @@
-// inferencia
+// 📓INFERENCIA
 //como a y b infiere que son number sin decirle nada
 const a = 1
 const b = 2
@@ -10,7 +10,7 @@ let cadenadetexto = 'hola'
 // ❌cadenadetext.toLocaleLowerCase()
 // ❌cadenatexto.propiedadInexistente
 
-// ANY
+// 📓ANY
 let obj: any = { x: 0 };
 
 obj.foo();
@@ -19,64 +19,70 @@ obj.bar = 100;
 obj = "hello";
 const n: number = obj;
 
-// functions 
-//function saludar(name: string) {
-//    console.log(`Hola ${name}`)
-//}
-
+// 📓functions 
+/*function saludar(name: string) {
+    console.log(`Hola ${name}`)
+    }
+*/
 //✅ saludar('Manu')
 //❌saludar(2) Argument of type 'number is not assignable to parameter of type 'string'. (esto sucede porque especificamos previamente (name: string) )
 
-// FORMA Nª1
-//function saludar({ name, age }: { name: string, age: number }) {
-//    console.log(`Hola ${name}, tienes ${age} años`)
-//}
+// 💻FORMA Nª1
+/*function saludar({ name, age }: { name: string, age: number }) {
+    console.log(`Hola ${name}, tienes ${age} años`)
+} 
+*/
 
 //saludar({ name: 'Rick', age: 33 })
 
-// FORMA Nª2
-//function saludar2(persona: { name: string, age: number }) {
-//    const { name, age } = persona
-//    console.log(`Hola ${name}, tienes ${age} años`)
-//}
+// 💻FORMA Nª2
+/*function saludar2(persona: { name: string, age: number }) {
+    const { name, age } = persona
+    console.log(`Hola ${name}, tienes ${age} años`)
+}
+*/
 
 //saludar2({ name: 'Rick', age: 33 })
 
-//function saludar({ name, age }: { name: string, age: number }): number { ✅ porque especificamos number, que es el age, que realmente devolverá el return
-//    console.log(`Hola ${name}, tienes ${age} años`)
-//    return age
-//}
+/*function saludar({ name, age }: { name: string, age: number }): number { ✅ porque especificamos number, que es el age, que realmente devolverá el return
+    console.log(`Hola ${name}, tienes ${age} años`)
+    return age
+}
+*/
 
-//function saludar({ name, age }: { name: string, age: number }): string { ❌ porque especificamos string, que NO es el age, que realmente devolverá el return
-//    console.log(`Hola ${name}, tienes ${age} años`)
-//    return age
-//}
+/*function saludar({ name, age }: { name: string, age: number }): string { ❌ porque especificamos string, que NO es el age, que realmente devolverá el return
+    console.log(`Hola ${name}, tienes ${age} años`)
+    return age
+}
+*/
 
-//const sayHiFromFunction = (fn) => {
-//    fn('Rick')
-//}
+/*const sayHiFromFunction = (fn) => {
+    fn('Rick')
+}
+*/
 
-//sayHiFromFunction((name) => {
-//    console.log(`Hola ${name}`)
-//})
+/*sayHiFromFunction((name) => {
+    console.log(`Hola ${name}`)
+})
+*/
 
-//TIPAR ARROW FUNCTION
-//FORMA 1º
+//📓TIPAR ARROW FUNCTION
+//💻FORMA 1º
 //const sumar = (a: number, b: number): number => {
 //    return a + b
 //}
 
-//FORMA 2ª
+//💻FORMA 2ª
 //const restar: (a: number, b: number) => number = (a, b) => {
 //    return a - b
 //}
 
-// NEVER (nunca devolverá nada, cuando sabemos que hay funciones que nunca devolverán nada)
+//📓NEVER (nunca devolverá nada, cuando sabemos que hay funciones que nunca devolverán nada)
 //function throwError(message: string): never {
 //    throw new Error(message);
 //}
 
-// VOID (forma de indicar que realmente la función PUEDE devolver un valor, lo que nos permite es que diferentes funciones nos sirvan)
+//📓VOID (forma de indicar que realmente la función PUEDE devolver un valor, lo que nos permite es que diferentes funciones nos sirvan)
 //function logMessage(message: string): void {
 //    console.log(message)
 //}
@@ -88,7 +94,7 @@ const n: number = obj;
 //    console.log(avenger.toUpperCase())
 //})
 
-//OBJETOS 
+//📓OBJETOS 
 //let hero = {
 //    name: 'Thor',
 //    age: 1500
@@ -100,7 +106,7 @@ const n: number = obj;
 
 //const thor = createHero('Thor', 1500)
 
-// TYPE ALIAS
+//📓TYPE ALIAS
 /*
 type Hero = {
     name: string
@@ -119,9 +125,9 @@ function createHero(hero: Hero): Hero {
 const thor = createHero({ name: 'Thor', age: 1500})
 */
 
-// OPTIONAL PROPERTIES
+//📓OPTIONAL PROPERTIES
 
-type HeroId = `${string}-${string}-${string}-${string}-${string}`
+/*type HeroId = `${string}-${string}-${string}-${string}-${string}`
 
 type Hero = {
     readonly id?: HeroId
@@ -145,11 +151,71 @@ function createHero(hero: Hero): Hero {
 }
 
 const thor = createHero({ name: 'Thor', age: 1500 })
+*/
 
-// template union types
+//📓template union types
 /*
 type HexadecimalColor = `#${string}`
 
 const color: HexadecimalColor = '0033ff' // hexadecimales ❌
 const color2: HexadecimalColor = '#0033ff' // hexadecimales ✅
 */
+
+//📓UNION TYPES 
+/*type HeroId = `${string}-${string}-${string}-${string}-${string}`
+type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal'
+
+type Hero = {
+    readonly id?: HeroId
+    name: string
+    age: number
+    isActive?: boolean
+    powerScale?: HeroPowerScale
+}
+let hero: Hero = {
+    name: 'Thor',
+    age: 1500
+};
+
+function createHero(hero: Hero): Hero {
+    const { name, age } = hero
+    return {
+        id: crypto.randomUUID(),
+        name, 
+        age, 
+        isActive:true 
+    }
+}
+
+const thor = createHero({ name: 'Thor', age: 1500 })
+thor.powerScale = 'planetary'
+*/
+
+//📓INTERSECTION TYPES 
+type HeroId = `${string}-${string}-${string}-${string}-${string}`
+type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal'
+
+type Hero = {
+    readonly id?: HeroId
+    name: string
+    age: number
+    isActive?: boolean
+    powerScale?: HeroPowerScale
+}
+let hero: Hero = {
+    name: 'Thor',
+    age: 1500
+};
+
+function createHero(hero: Hero): Hero {
+    const { name, age } = hero
+    return {
+        id: crypto.randomUUID(),
+        name, 
+        age, 
+        isActive:true 
+    }
+}
+
+const thor = createHero({ name: 'Thor', age: 1500 })
+thor.powerScale = 'planetary'
