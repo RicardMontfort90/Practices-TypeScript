@@ -62,13 +62,59 @@ const n: number = obj;
 
 //TIPAR ARROW FUNCTION
 //FORMA 1º
-const sumar = (a: number, b: number): number => {
-    return a + b
-}
+//const sumar = (a: number, b: number): number => {
+//    return a + b
+//}
 
 //FORMA 2ª
-const restar: (a: number, b: number) => number = (a, b) => {
-    return a - b
+//const restar: (a: number, b: number) => number = (a, b) => {
+//    return a - b
+//}
+
+// NEVER (nunca devolverá nada, cuando sabemos que hay funciones que nunca devolverán nada)
+//function throwError(message: string): never {
+//    throw new Error(message);
+//}
+
+// VOID (forma de indicar que realmente la función PUEDE devolver un valor, lo que nos permite es que diferentes funciones nos sirvan)
+//function logMessage(message: string): void {
+//    console.log(message)
+//}
+
+// inferencia funciones anonimas sgun el contexto
+//const avengers = ['Spidey', 'Hulk', 'Avengers']
+
+//avengers.forEach(function (avenger) {
+//    console.log(avenger.toUpperCase())
+//})
+
+//OBJETOS 
+//let hero = {
+//    name: 'Thor',
+//    age: 1500
+//};
+
+//function createHero(name: string, age: number) {
+//    return {name, age}
+//}
+
+//const thor = createHero('Thor', 1500)
+
+// TYPE ALIAS
+
+type Hero = {
+    name: string
+    age: number
+}
+let hero: Hero = {
+    name: 'Thor',
+    age: 1500
+};
+
+function createHero(hero: Hero): Hero {
+    const { name, age } = hero
+    return {name, age}
 }
 
-// NEVER
+const thor = createHero({ name: 'Thor', age: 1500})
+
