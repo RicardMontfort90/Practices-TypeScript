@@ -17,11 +17,15 @@ const hero: Heroe = {
 }
 */
 
-interface Producto {
+interface Producto { // Esto sería la base
     id: number
     nombre: string
     precio: number
     quantity: number
+}
+
+interface Zapatilla extends Producto { // Un producto en concreto que se puede extender la Base de cualquier producto con extends
+    talla: number
 }
 
 interface CarritoDeCompras {
