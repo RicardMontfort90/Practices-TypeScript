@@ -192,6 +192,7 @@ thor.powerScale = 'planetary'
 */
 
 //📓INTERSECTION TYPES 
+/*
 type HeroId = `${string}-${string}-${string}-${string}-${string}`
 type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal'
 
@@ -225,3 +226,23 @@ function createHero(input: HeroBasicInfo): Hero {
 
 const thor = createHero({ name: 'Thor', age: 1500 })
 thor.powerScale = 'planetary'
+*/
+
+//📓TYPE INDEXING
+/*
+type HeroProperties = {
+    isActive: boolean,
+    address: {
+        planet: string,
+        city: string
+    }
+}
+
+const addressHero: HeroProperties['address'] = {
+    planet: 'Earth',
+    city: 'Madrid'
+}
+*/
+
+//📓TYPE FROM VALUE
+
