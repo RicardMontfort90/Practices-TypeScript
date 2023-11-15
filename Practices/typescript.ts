@@ -279,3 +279,45 @@ langueges.push('JavaScript')  // ✅ ha detectado un string, es una de las opcio
 langueges.push(2)             // ✅ ha detectado un number, es una de las opciones, es correcto
 langueges.push(true)          // ❌ ha detectado un boolean, NO es una de las opciones, NO ES CORRECTO!!
 */
+
+/*
+type HeroId = `${string}-${string}-${string}-${string}-${string}`
+type HeroPowerScale = 'local' | 'planetary' | 'galactic' | 'universal' | 'multiversal'
+
+type HeroBasicInfo = {
+    name: string,
+    age: number,
+}
+
+const heroesWithBasicInfo: HeroBasicInfo[] = []
+*/
+//📓TUPLES
+/*
+[
+    ['X', 'O', 'X'], // <- string []
+    ['O', 'X', 'O'], // <- string []
+    ['X', '', 'O']   // <- string []
+    
+]
+*/
+
+type CellValue = 'X' | 'O' | ''
+type GameBoard = [
+    [CellValue, CellValue, CellValue ],
+    [CellValue, CellValue, CellValue ],
+    [CellValue, CellValue, CellValue ]
+]
+
+const gameBoard: CellValue[][] = [
+    ['X', 'O', 'X'], 
+    ['O', 'X', 'O'], 
+    ['X', '', 'O']
+]
+
+type RGB = [number, number, number]
+const rgb: RGB = [2, 5, 6]               // ✅ el Array, ha detectado los 3 números
+const rgb2: RGB = [2, 5]                 // ❌ el Array, ha detectado SOLO 2 números, y espera 3
+const rgb3: RGB = [2, 5, 6, 'FATALITY']  // ❌ el Array, ha detectado los 3 números + un string no declarado previamente
+
+
+
