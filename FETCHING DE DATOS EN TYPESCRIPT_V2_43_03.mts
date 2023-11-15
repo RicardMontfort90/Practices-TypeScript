@@ -180,8 +180,12 @@ if (!response.ok) { //en caso de error ❌
     throw new Error('Request failed')
 }
 
-const data = await response.json() // si todo va bien ✅
+const data = await response.json() as GitHubAPIResponse // si todo va bien ✅ con as GitHubAPIResponse tenemos totalmente tipado, mirar al principio para la explicación
 
-const repos = data.items.map(repos => {
-    console.log(repos)
+data.items.map(repo => {
+    return {
+        name: repo.name,
+        id: repo.id,
+        url: repo.html_url
+    }
 })
