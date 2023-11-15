@@ -24,7 +24,7 @@ interface Producto { // Esto sería la base
     quantity: number
 }
 
-interface Zapatilla extends Producto { // Un producto en concreto que se puede extender la Base de cualquier producto con extends
+interface Zapatilla extends Producto { // Un producto en concreto que se puede extender la Base de cualquier producto con extends, añadiendo la propiedad talla: number
     talla: number
 }
 
