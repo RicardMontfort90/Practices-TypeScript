@@ -101,7 +101,7 @@ const n: number = obj;
 //const thor = createHero('Thor', 1500)
 
 // TYPE ALIAS
-
+/*
 type Hero = {
     name: string
     age: number
@@ -117,4 +117,39 @@ function createHero(hero: Hero): Hero {
 }
 
 const thor = createHero({ name: 'Thor', age: 1500})
+*/
 
+// OPTIONAL PROPERTIES
+
+type HeroId = `${string}-${string}-${string}-${string}-${string}`
+
+type Hero = {
+    readonly id?: HeroId
+    name: string
+    age: number
+    isActive?: boolean
+}
+let hero: Hero = {
+    name: 'Thor',
+    age: 1500
+};
+
+function createHero(hero: Hero): Hero {
+    const { name, age } = hero
+    return {
+        id: crypto.randomUUID(),
+        name, 
+        age, 
+        isActive:true 
+    }
+}
+
+const thor = createHero({ name: 'Thor', age: 1500 })
+
+// template union types
+/*
+type HexadecimalColor = `#${string}`
+
+const color: HexadecimalColor = '0033ff' // hexadecimales ❌
+const color2: HexadecimalColor = '#0033ff' // hexadecimales ✅
+*/
