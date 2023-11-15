@@ -245,4 +245,37 @@ const addressHero: HeroProperties['address'] = {
 */
 
 //📓TYPE FROM VALUE
+/*
+const address = {
+    planet: 'Earth',
+    city: 'Madrid'
+}
 
+type Address = typeof address
+
+const addressTwitch: Address = {
+    planet: 'Mars',
+    city: 'Twitch'
+}
+*/
+
+//📓TYPE FROM FUNCTION RETURN
+/*
+function createAddress() {
+    return {
+        planet: 'Tierra',
+        city: 'Barcelona'
+    }
+}
+
+type Address = ReturnType<typeof createAddress>
+*/
+
+//📓ARRAYS
+/*
+const langueges: (string | number)[] = [] 
+
+langueges.push('JavaScript')  // ✅ ha detectado un string, es una de las opciones, es correcto
+langueges.push(2)             // ✅ ha detectado un number, es una de las opciones, es correcto
+langueges.push(true)          // ❌ ha detectado un boolean, NO es una de las opciones, NO ES CORRECTO!!
+*/
