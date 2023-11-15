@@ -50,5 +50,5 @@ function jugar(personaje: Personaje) {
     //Segurp que solo llega a Sonic
     personaje.correr()
     */
-}
+} 
 
